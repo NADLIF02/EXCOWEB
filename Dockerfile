@@ -22,7 +22,7 @@ RUN a2enmod php7.4
 RUN a2enmod rewrite
 
 # Copie des fichiers du site web dans le dossier du serveur web
-COPY src/ /var/www/html/
+COPY EXCOWEB/ /var/www/html/
 
 # Mise à jour du fichier de configuration Apache pour pointer vers le dossier public
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html|' /etc/apache2/sites-available/000-default.conf
