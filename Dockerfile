@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite
 
 # Copie des fichiers du site web dans le dossier du serveur web
-COPY src/ /var/www/html/
+COPY EXCOWEB/ /var/www/html/
 
 # Configuration des permissions des fichiers et des dossiers
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
