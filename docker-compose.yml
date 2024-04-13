@@ -5,25 +5,19 @@ services:
     build: .
     ports:
       - "80:80"
-    volumes:
-      - ./src:/var/www/html
     depends_on:
       - db
-    environment:
-      MYSQL_HOST: db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: nom_de_la_base
+    volumes:
+      - ./src:/var/www/html
 
   db:
-    image: mysql:5.7
-    ports:
-      - "3306:3306"
+    image: mariadb
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: nom_de_la_base
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: mydatabase
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
     volumes:
       - db_data:/var/lib/mysql
 
